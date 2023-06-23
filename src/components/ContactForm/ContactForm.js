@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'redux/actions';
+import { getItems } from 'redux/selectors';
 import s from './ContactForm.module.css';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const isContact = useSelector(state => state.items);
+  const isContact = useSelector(getItems);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
